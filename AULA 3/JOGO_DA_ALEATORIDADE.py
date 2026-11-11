@@ -1,26 +1,90 @@
+# IF E ELSE ELIF
+
+# pedra papel e tesoura ....
+
 import random
 
-print('JOGO DA ALEATORIDADE')
-print()
-print('TENTE ACERTAR O NÚMERO DE 1 A 10... ')
-print('VALENDO R$5.000,00')
+opcoes_maquina  =  ['pedra','papel','tesoura']
+pontos_maquina =  0
+pontos_usuario = 0
 
-pontos = 0
+jogar__ =  input('Deseja jogar? sim ou não')
 
 
-tentativas  =  3
-for n in range(tentativas):
-    numero_maquina = random.randint(1,2000)
-    numero_usuario = int(input('SEU CHUTE VALENDO 5K!>>>> '))
-    tentativas =  tentativas - 1
-    if numero_usuario == numero_maquina:
-        print('Você é o grande vencedor(a)')
-        print('LEVE SEU 5K!!!! ;)')
-        ponto = ponto + 1
-    else:
-        print('ERROU FEIO!! PERDEDOR(A)!!')
-       
-        print('tentativas', tentativas)
-        if tentativas  == 0:
-            print('o numero da maquina é ', numero_maquina)
-            print('Tentaivas esgotadas!!! ;P ')
+while jogar__ == 'sim':
+
+    for n in range(4):
+        escolha_usuario = input(f'Escolha {opcoes_maquina} >>')
+        escolha_maquina = random.choice(opcoes_maquina)
+
+        if escolha_maquina == escolha_usuario:
+            print('EMPATE...')
+            print(f'''
+                
+                ESCOLHA DA MÁQUINA:  {escolha_maquina}
+                ESCOLHA DO USUÁRIO:  {escolha_usuario}
+              
+
+             ''')
+        
+            
+        elif escolha_maquina == 'pedra' and escolha_usuario == 'tesoura':
+            print('Máquina ganhou')
+            pontos_maquina  =  pontos_maquina + 1
+            print(f'''
+                
+                ESCOLHA DA MÁQUINA:  {escolha_maquina}
+                ESCOLHA DO USUÁRIO:  {escolha_usuario}
+              
+
+             ''')    
+        elif escolha_maquina == 'tesoura' and escolha_usuario == 'papel':
+            print('Máquina ganhou')
+            pontos_maquina  =  pontos_maquina + 1
+            print(f'''
+                
+                ESCOLHA DA MÁQUINA:  {escolha_maquina}
+                ESCOLHA DO USUÁRIO:  {escolha_usuario}
+              
+
+             ''')    
+        elif escolha_maquina == 'papel' and escolha_usuario == 'pedra':
+            print('Máquina ganhou')
+            pontos_maquina  =  pontos_maquina + 1
+            print(f'''
+                
+                ESCOLHA DA MÁQUINA:  {escolha_maquina}
+                ESCOLHA DO USUÁRIO:  {escolha_usuario}
+              
+
+             ''')    
+        else:
+            print('USUÁRIO  VENCEU!!')
+            pontos_usuario  = pontos_usuario + 1
+            print(f'''
+                
+                ESCOLHA DA MÁQUINA:  {escolha_maquina}
+                ESCOLHA DO USUÁRIO:  {escolha_usuario}
+              
+
+             ''')
+    print('PONTUAÇÃO GERAL')
+    print('USUARIO: ', pontos_usuario)
+    print('MÁQUINA: ', pontos_maquina)
+        
+    jogar__ =  input('Deseja continuar? ')
+
+print('PONTUAÇÃO GERAL')
+
+print('USUARIO: ', pontos_usuario)
+print('MÁQUINA: ', pontos_maquina)
+
+if pontos_usuario > pontos_maquina:
+    print('VENCEDOR --- Usuário: ', pontos_usuario)
+elif pontos_usuario == pontos_maquina:
+    print('EMPATE TECNICO')
+    
+else:
+    print('VENCEDOR --- Máquina: ', pontos_maquina)
+    
+
